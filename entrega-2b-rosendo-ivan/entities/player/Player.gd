@@ -18,11 +18,9 @@ func _physics_process(delta):
 	var mouse_position: Vector2 = get_global_mouse_position()
 	cannon.look_at(mouse_position)
 
-	# Fuego
 	if Input.is_action_just_pressed("fire"):
 		cannon.fire()
 
-	# Aceleración
 	if input_dir != 0:
 		velocity_x = move_toward(velocity_x, input_dir * speed, acceleration * delta)
 	else:
