@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0l0qmpyxxn18"]
+
+[ext_resource type="PackedScene" uid="uid://cbk2unn8itp5e" path="res://entities/AbstractProjectile.tscn" id="1_vpnpt"]
+[ext_resource type="Texture2D" uid="uid://be0swbydkkbhk" path="res://assets/textures/proyectile_player.png" id="2_oxdqn"]
+
+[node name="Projectile" instance=ExtResource("1_vpnpt")]
+position = Vector2(521, 289)
+texture = ExtResource("2_oxdqn")
+speed = 400.0
+
+[node name="LifeTimer" type="Timer" parent="." index="0"]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

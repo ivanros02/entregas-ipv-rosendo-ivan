@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://qw203ugutk52"]
+
+[ext_resource type="Script" uid="uid://cke2pd5pythht" path="res://Cannon.gd" id="1_gm4uw"]
+[ext_resource type="Texture2D" uid="uid://dvnp32d7gnfvk" path="res://assets/textures/cannon.png" id="1_vjpwp"]
+[ext_resource type="PackedScene" uid="uid://c0l0qmpyxxn18" path="res://entities/player/Projectile.tscn" id="3_iqian"]
+
+[node name="Cannon" type="Sprite2D"]
+texture = ExtResource("1_vjpwp")
+script = ExtResource("1_gm4uw")
+projectile_scene = ExtResource("3_iqian")
+
+[node name="FirePosition" type="Marker2D" parent="."]
+position = Vector2(16, 0)

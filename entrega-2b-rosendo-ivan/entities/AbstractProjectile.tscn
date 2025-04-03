@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbk2unn8itp5e"]
+
+[ext_resource type="Script" uid="uid://ckuerd5vxqjut" path="res://entities/AbstractProjectile.gd" id="1_kst0p"]
+
+[node name="Projectile" type="Sprite2D"]
+script = ExtResource("1_kst0p")
