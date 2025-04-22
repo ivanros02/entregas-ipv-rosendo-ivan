@@ -7,5 +7,6 @@ res://entities/enemies/Explosion.tscn
 res://ui/WinUI.tscn
 res://entities/enemies/Turret.tscn
 res://entities/player/Projectile.tscn
-res://entities/enemies/TurretsSpawner.gd
-res://entities/player/Projectile.gd
+res://ui/GameOver.tscn
+res://ui/GameOverUI.gd
+res://ui/WinUI.gd

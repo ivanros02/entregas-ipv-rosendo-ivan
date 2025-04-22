@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var retry_button = $Panel/Button
 
 func _ready():
+	$SoundPlayer.play()
 	retry_button.connect("pressed", Callable(self, "_on_retry_pressed"))
 	get_tree().paused = true
 	process_mode = Node.PROCESS_MODE_ALWAYS

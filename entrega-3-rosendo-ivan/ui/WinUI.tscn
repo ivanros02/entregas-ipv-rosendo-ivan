@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cma3jwlv2g1dj"]
+[gd_scene load_steps=3 format=3 uid="uid://cma3jwlv2g1dj"]
 
 [ext_resource type="Script" uid="uid://comrrj5lw3nn4" path="res://ui/WinUI.gd" id="1_2em7s"]
+[ext_resource type="AudioStream" uid="uid://vbm6jsfpgigf" path="res://assets/sounds/win-sound.wav" id="2_02hka"]
 
 [node name="WinUI" type="CanvasLayer"]
 script = ExtResource("1_2em7s")
@@ -33,3 +34,7 @@ offset_top = 228.0
 offset_right = 448.0
 offset_bottom = 251.0
 text = "¡GANASTE!"
+
+[node name="SoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_02hka")
+volume_db = 0.99

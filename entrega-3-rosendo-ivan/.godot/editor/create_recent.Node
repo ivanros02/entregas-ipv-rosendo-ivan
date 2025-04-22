@@ -1,3 +1,5 @@
+AudioStreamPlayer2D
+AudioListener2D
 AudioStreamPlayer
 Marker2D
 TileMap
@@ -7,9 +9,6 @@ StaticBody2D
 AnimatedSprite2D
 Area2D
 Label
-AudioStreamPlayer2D
 Button
 Panel
 CanvasLayer
-CPUParticles2D
-CharacterBody2D
