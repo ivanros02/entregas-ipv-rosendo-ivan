@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://ub1dhu1b6y62"]
+
+[ext_resource type="Texture2D" uid="uid://cv8226cmoj50n" path="res://assets/textures/SentryCrab-Sheet.png" id="1_x15t2"]
+[ext_resource type="Script" uid="uid://b4ai6qf636vli" path="res://entities/enemies/Turret.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://bshqq80wf6oo7" path="res://entities/enemies/TurretProjectile.tscn" id="3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7smu"]
+atlas = ExtResource("1_x15t2")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkaow"]
+atlas = ExtResource("1_x15t2")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myqr2"]
+atlas = ExtResource("1_x15t2")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xj7pi"]
+atlas = ExtResource("1_x15t2")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2omqb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7smu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkaow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myqr2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xj7pi")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x15t2"]
+radius = 297.168
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x15t2"]
+radius = 26.0
+height = 54.0
+
+[node name="Turret" type="AnimatedSprite2D"]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_2omqb")
+animation = &"fly"
+script = ExtResource("2")
+projectile_scene = ExtResource("3")
+
+[node name="FireTimer" type="Timer" parent="."]
+
+[node name="FirePosition" type="Marker2D" parent="."]
+position = Vector2(0, -30.0339)
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_x15t2")
+
+[node name="HitboxArea" type="Area2D" parent="."]
+collision_layer = 9
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea"]
+shape = SubResource("CapsuleShape2D_x15t2")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

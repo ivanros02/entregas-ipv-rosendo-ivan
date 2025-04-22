@@ -1,0 +1,11 @@
+res://default_env.tres
+res://Main.tscn
+res://entities/player/PlayerProjectile.tscn
+res://entities/enemies/TurretProjectile.tscn
+res://entities/player/Player.tscn
+res://entities/enemies/Explosion.tscn
+res://ui/WinUI.tscn
+res://entities/enemies/Turret.tscn
+res://entities/player/Projectile.tscn
+res://entities/enemies/TurretsSpawner.gd
+res://entities/player/Projectile.gd

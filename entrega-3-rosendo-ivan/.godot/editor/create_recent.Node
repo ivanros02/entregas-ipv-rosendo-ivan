@@ -1,0 +1,15 @@
+AudioStreamPlayer
+Marker2D
+TileMap
+Sprite2D
+CollisionShape2D
+StaticBody2D
+AnimatedSprite2D
+Area2D
+Label
+AudioStreamPlayer2D
+Button
+Panel
+CanvasLayer
+CPUParticles2D
+CharacterBody2D
