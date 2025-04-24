@@ -23,8 +23,6 @@ func _on_body_entered(body):
 	elif body.is_in_group("walls"):
 		_remove()
 
-
-
 func initialize(container, spawn_position:Vector2, direction:Vector2):
 	self.direction = direction
 	global_position = spawn_position
@@ -32,7 +30,7 @@ func initialize(container, spawn_position:Vector2, direction:Vector2):
 	if source == "player":
 		add_to_group("player_projectiles")
 
-	container.add_child(self)  # 👈 ahora se agrega al árbol con todo listo
+	container.add_child(self)
 
 	lifetime_timer.connect("timeout", Callable(self, "_on_lifetime_timer_timeout"))
 	lifetime_timer.start()

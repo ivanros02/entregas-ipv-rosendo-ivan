@@ -24,7 +24,6 @@ func initialize(container, turret_pos, projectile_container):
 
 func fire_at_player():
 	if !is_instance_valid(target) or projectile_scene == null:
-		push_error("🚨 projectile_scene no está asignado en la torreta.")
 		return
 
 	var direction_to_target = fire_position.global_position.direction_to(target.global_position)

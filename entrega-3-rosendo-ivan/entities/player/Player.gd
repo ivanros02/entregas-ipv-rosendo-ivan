@@ -22,7 +22,7 @@ func _physics_process(delta):
 	if get_tree().paused:
 		return
 
-	# Cannon rotation
+
 	var mouse_position: Vector2 = get_global_mouse_position()
 	cannon.look_at(mouse_position)
 
@@ -33,7 +33,7 @@ func _physics_process(delta):
 			cannon.projectile_container = projectile_container
 		cannon.fire()
 
-	# Player horizontal movement
+
 	var h_movement_direction: int = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 
 	if h_movement_direction != 0:
@@ -44,14 +44,14 @@ func _physics_process(delta):
 		$Body.stop()
 		$Body.frame = 0
 
-	# Apply gravity
+
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 	else:
 		if Input.is_action_just_pressed("jump"):
 			velocity.y = JUMP_FORCE
 
-	# Move the character
+
 	move_and_slide()
 
 

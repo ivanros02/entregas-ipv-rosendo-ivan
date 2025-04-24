@@ -9,5 +9,5 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS  # Asegura que este cartel funcione aunque el juego esté en pausa
 
 func _on_retry_pressed():
-	get_tree().paused = false  # Despausamos antes de reiniciar
-	get_tree().reload_current_scene()  # Reiniciamos la escena completa
+	get_tree().paused = false
+	get_tree().reload_current_scene()
