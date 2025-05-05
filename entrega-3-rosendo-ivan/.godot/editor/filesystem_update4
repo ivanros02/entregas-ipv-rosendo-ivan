@@ -1,7 +1,0 @@
-res://default_env.tres
-res://ui/WinUI.tscn
-res://ui/GameOverUI.gd
-res://entities/player/Player.gd
-res://entities/player/Projectile.gd
-res://entities/enemies/Turret.gd
-res://ui/GameOver.tscn

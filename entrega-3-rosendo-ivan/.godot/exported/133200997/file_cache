@@ -1,0 +1,11 @@
+res://entities/enemies/Explosion.tscn::b21e84f989f8972b36837ff77483473c::1745349549::res://.godot/exported/133200997/export-45e149a6952927e9d3a8629e5e8418d1-Explosion.scn
+res://entities/enemies/Turret.tscn::e9826fa8e0b5547e20e7f52fb07b351c::1745349550::res://.godot/exported/133200997/export-4049d343ae3443145fb43cfcd2854dfe-Turret.scn
+res://entities/enemies/TurretProjectile.tscn::6d048392c83d1a414fdb438eb6cd319f::1745349549::res://.godot/exported/133200997/export-554dbafd0cfbe1438fa019304fed2592-TurretProjectile.scn
+res://entities/player/Player.tscn::695f51231819b3819ab5cd8a9a02b594::1745349549::res://.godot/exported/133200997/export-62eb336cb475cb7d34f25e10e9933e51-Player.scn
+res://entities/player/PlayerProjectile.tscn::ee745683dffbf7d7200566c9ef5e4128::1745349549::res://.godot/exported/133200997/export-80e63e41f9d8079355fa4c67c65eaac6-PlayerProjectile.scn
+res://entities/player/Projectile.tscn::b3dc8435d58a99ea4206ebe22089a31e::1745349550::res://.godot/exported/133200997/export-887d94430f4aa0b75ae28234a98320bf-Projectile.scn
+res://entities/world/Floor.tscn::1a18a2bb4902a425ea0227db3826a309::1745253793::res://.godot/exported/133200997/export-aaa0fd0343b0194bac4ecca506bb6d83-Floor.scn
+res://ui/GameOver.tscn::d1a19efc64f332e05ed705f47f4aacf3::1745498252::res://.godot/exported/133200997/export-2668cf6a5d43d10172a150a09ec31d33-GameOver.scn
+res://ui/WinUI.tscn::9bce6d67996b27b849bcde569778cd06::1745498303::res://.godot/exported/133200997/export-6154074676adabe604444ab844a25e25-WinUI.scn
+res://default_env.tres::f9d1d942b3dfb1fe84e665f8f0dd98b4::1745498303::res://.godot/exported/133200997/export-7cf3fd67ad9f55210191d77b582b8209-default_env.res
+res://Main.tscn::e187163185e3554444cd3c2b099e7d31::1745349549::res://.godot/exported/133200997/export-bcb0d2eb5949c52b6a65bfe9de3e985b-Main.scn

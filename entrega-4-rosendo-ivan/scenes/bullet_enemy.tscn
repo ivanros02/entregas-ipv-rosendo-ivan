@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://badxye2tkwrsn"]
+
+[ext_resource type="Script" uid="uid://j84byk5ksvqf" path="res://scripts/bullet_enemy.gd" id="1_resul"]
+[ext_resource type="Texture2D" uid="uid://cvar10ocpyopl" path="res://assets/textures/enemies/golem/Golem_AttackB_FX.png" id="1_v81wq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_resul"]
+atlas = ExtResource("1_v81wq")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmyi3"]
+atlas = ExtResource("1_v81wq")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0ysx"]
+atlas = ExtResource("1_v81wq")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spdxa"]
+atlas = ExtResource("1_v81wq")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7y3u0"]
+atlas = ExtResource("1_v81wq")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cuyeo"]
+atlas = ExtResource("1_v81wq")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v623j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_resul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmyi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0ysx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spdxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7y3u0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cuyeo")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w1cn2"]
+
+[node name="bullet_enemy" type="Area2D"]
+script = ExtResource("1_resul")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v623j")
+animation = &"fly"
+frame_progress = 0.987536
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w1cn2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

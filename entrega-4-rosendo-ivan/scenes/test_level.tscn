@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxixrpdytkppl"]
+
+[ext_resource type="PackedScene" uid="uid://csahqq42nc2wy" path="res://scenes/player.tscn" id="1_2venv"]
+[ext_resource type="Texture2D" uid="uid://bgu8jkqiwji5" path="res://assets/textures/floor.png" id="2_paw1w"]
+[ext_resource type="PackedScene" uid="uid://jggrd40ylqlh" path="res://scenes/enemy.tscn" id="3_j6w7d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_paw1w"]
+size = Vector2(1160, 31.5)
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_2venv")]
+position = Vector2(579, 327)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(13, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(568, 364.25)
+shape = SubResource("RectangleShape2D_paw1w")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground/CollisionShape2D"]
+position = Vector2(-4, 60.75)
+scale = Vector2(17.372, 2.196)
+texture = ExtResource("2_paw1w")
+
+[node name="Enemy" parent="." instance=ExtResource("3_j6w7d")]
+position = Vector2(651, 257)
