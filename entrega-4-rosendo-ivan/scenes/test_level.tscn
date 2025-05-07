@@ -8,6 +8,7 @@
 size = Vector2(1160, 31.5)
 
 [node name="TestLevel" type="Node2D"]
+position = Vector2(-1, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_2venv")]
 position = Vector2(579, 327)

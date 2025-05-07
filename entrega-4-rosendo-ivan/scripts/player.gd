@@ -52,8 +52,12 @@ func shoot():
 		return
 	var bullet = preload("res://scenes/bullet.tscn").instantiate()
 	bullet.global_position = muzzle.global_position
-	bullet.rotation = cannon.global_rotation
+	
+	# Calcular dirección al mouse
+	var direction = (get_global_mouse_position() - muzzle.global_position).normalized()
+	bullet.velocity = direction * bullet.speed  # Pasamos la dirección ya calculada
 	get_tree().current_scene.add_child(bullet)
+
 
 	
 

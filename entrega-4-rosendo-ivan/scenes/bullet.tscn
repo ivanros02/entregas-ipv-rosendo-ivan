@@ -46,6 +46,7 @@ animations = [{
 }]
 
 [node name="Bullet" type="Area2D"]
+position = Vector2(483, 246)
 script = ExtResource("1_mkf8s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
