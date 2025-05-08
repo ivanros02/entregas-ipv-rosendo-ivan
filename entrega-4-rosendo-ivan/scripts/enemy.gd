@@ -22,17 +22,24 @@ func _process(delta):
 			shoot()
 			shoot_timer = shoot_interval
 
+
 func shoot():
+	
+
+	if not bullet_scene or not muzzle:
+		return
+
 	var bullet = bullet_scene.instantiate()
 	bullet.global_position = muzzle.global_position
 
 	var player = get_tree().get_first_node_in_group("player")
-	if player != null:
-		bullet.rotation = (player.global_position - global_position).angle()
-	else:
-		print("⚠️ No se encontró el nodo del jugador.")
+	if player:
+		var direction = (player.global_position - bullet.global_position).normalized()
+		bullet.velocity = direction * bullet.speed
+		bullet.rotation = direction.angle()
 
 	get_tree().current_scene.add_child(bullet)
+
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player":

@@ -1,17 +1,82 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxixrpdytkppl"]
+[gd_scene load_steps=16 format=3 uid="uid://bxixrpdytkppl"]
 
 [ext_resource type="PackedScene" uid="uid://csahqq42nc2wy" path="res://scenes/player.tscn" id="1_2venv"]
 [ext_resource type="Texture2D" uid="uid://bgu8jkqiwji5" path="res://assets/textures/floor.png" id="2_paw1w"]
 [ext_resource type="PackedScene" uid="uid://jggrd40ylqlh" path="res://scenes/enemy.tscn" id="3_j6w7d"]
+[ext_resource type="Script" uid="uid://j84byk5ksvqf" path="res://scripts/bullet_enemy.gd" id="4_tmr53"]
+[ext_resource type="Texture2D" uid="uid://cvar10ocpyopl" path="res://assets/textures/enemies/golem/Golem_AttackB_FX.png" id="5_qcd3b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_paw1w"]
 size = Vector2(1160, 31.5)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_resul"]
+atlas = ExtResource("5_qcd3b")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmyi3"]
+atlas = ExtResource("5_qcd3b")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0ysx"]
+atlas = ExtResource("5_qcd3b")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spdxa"]
+atlas = ExtResource("5_qcd3b")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7y3u0"]
+atlas = ExtResource("5_qcd3b")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cuyeo"]
+atlas = ExtResource("5_qcd3b")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v623j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_resul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmyi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0ysx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spdxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7y3u0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cuyeo")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w1cn2"]
+
+[sub_resource type="PackedScene" id="PackedScene_tmr53"]
+resource_local_to_scene = true
+_bundled = {
+"conn_count": 1,
+"conns": PackedInt32Array(0, 0, 12, 11, 2, 0, 0),
+"editable_instances": [],
+"names": PackedStringArray("bullet_enemy", "scale", "script", "Area2D", "AnimatedSprite2D", "position", "sprite_frames", "animation", "frame_progress", "CollisionShape2D", "shape", "_on_body_entered", "body_entered"),
+"node_count": 3,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 3, 0, -1, 2, 1, 0, 2, 1, 0, 0, 0, 4, 4, -1, 4, 5, 2, 6, 3, 7, 4, 8, 5, 0, 0, 0, 9, 9, -1, 2, 5, 6, 10, 7, 0),
+"variants": [Vector2(1.5, 1.5), ExtResource("4_tmr53"), Vector2(0, 6), SubResource("SpriteFrames_v623j"), &"fly", 0.987536, Vector2(2, 8.66667), SubResource("CircleShape2D_w1cn2")],
+"version": 3
+}
+
 [node name="TestLevel" type="Node2D"]
 position = Vector2(-1, 0)
-
-[node name="Player" parent="." instance=ExtResource("1_2venv")]
-position = Vector2(579, 327)
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(13, 13)
@@ -25,5 +90,9 @@ position = Vector2(-4, 60.75)
 scale = Vector2(17.372, 2.196)
 texture = ExtResource("2_paw1w")
 
+[node name="Player" parent="." instance=ExtResource("1_2venv")]
+position = Vector2(579, 327)
+
 [node name="Enemy" parent="." instance=ExtResource("3_j6w7d")]
-position = Vector2(651, 257)
+position = Vector2(575, 308)
+bullet_scene = SubResource("PackedScene_tmr53")

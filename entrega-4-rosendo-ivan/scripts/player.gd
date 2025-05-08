@@ -14,7 +14,6 @@ func _process(delta):
 		return
 	cannon.look_at(get_global_mouse_position())
 
-
 func _physics_process(delta):
 	if not alive:
 		return
@@ -32,7 +31,6 @@ func _physics_process(delta):
 
 	if direction != 0:
 		sprite.flip_h = direction < 0
-		cannon.scale.x = -1 if sprite.flip_h else 1
 		cannon.position.x = -abs(cannon.position.x) if sprite.flip_h else abs(cannon.position.x)
 
 	if not is_on_floor():
@@ -56,10 +54,7 @@ func shoot():
 	# Calcular dirección al mouse
 	var direction = (get_global_mouse_position() - muzzle.global_position).normalized()
 	bullet.velocity = direction * bullet.speed  # Pasamos la dirección ya calculada
-	get_tree().current_scene.add_child(bullet)
-
-
-	
+	get_tree().root.add_child(bullet)
 
 func die():
 	if not alive:

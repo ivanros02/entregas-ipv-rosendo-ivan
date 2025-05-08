@@ -6,9 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bqn8r1kh3hnx3" path="res://assets/textures/fx/bolt/bolt2.png" id="4_26lx3"]
 [ext_resource type="Texture2D" uid="uid://dnxi6ypq6w8ux" path="res://assets/textures/fx/bolt/bolt1.png" id="5_1cfmv"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_h1aey"]
-radius = 45.3982
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_k76ql"]
 atlas = ExtResource("2_qncy5")
 region = Rect2(0, 0, 48, 32)
@@ -45,19 +42,22 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_h1aey"]
+radius = 45.3982
+
 [node name="Bullet" type="Area2D"]
 position = Vector2(483, 246)
 script = ExtResource("1_mkf8s")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 0)
-shape = SubResource("CircleShape2D_h1aey")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -1)
 rotation = -3.13287
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_6umxm")
 animation = &"fly"
+frame_progress = 0.931727
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_h1aey")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

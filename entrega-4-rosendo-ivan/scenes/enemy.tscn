@@ -198,31 +198,30 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8tegq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7p1mj"]
-radius = 70.0
-height = 140.0
+radius = 277.0
+height = 554.0
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 position = Vector2(573, 308)
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 script = ExtResource("1_7p1mj")
 bullet_scene = ExtResource("2_xwavj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ekh6n")
-animation = &"death"
-frame = 16
-frame_progress = 1.0
+animation = &"idle"
+frame_progress = 0.531547
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_8tegq")
 
 [node name="Muzzle" type="Marker2D" parent="."]
-position = Vector2(-0.333333, 1)
+position = Vector2(-1.99999, -40)
 
 [node name="DetectionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(0, 2)
+position = Vector2(1, 3)
 shape = SubResource("CapsuleShape2D_7p1mj")
 
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
