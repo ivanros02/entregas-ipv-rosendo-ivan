@@ -228,14 +228,35 @@ func _update_passive_prop(amount, max_amount, property: String, updated_signal) 
 
 # El llamado a remove final
 func _remove() -> void:
-	# Reproducir sonido de muerte si está configurado
+	print("🔴 _remove() llamada - iniciando proceso de muerte")
+	
+	# Verificar si death_sfx está asignado
 	if death_sfx:
+		print("✅ death_sfx está asignado: ", death_sfx)
+		print("🔊 PlayerSfx existe: ", player_sfx != null)
+		
 		player_sfx.stream = death_sfx
+		print("🎵 Stream asignado, reproduciendo...")
 		player_sfx.play()
-
-	# Deshabilitar colisiones y física
+		
+		# Verificar si realmente está reproduciendo
+		print("🎮 ¿Está reproduciendo? ", player_sfx.playing)
+		print("🔊 Volumen: ", player_sfx.volume_db)
+		
+		# Esperar a que termine el audio
+		yield(player_sfx, "finished")
+		print("✅ Audio terminado")
+	else:
+		print("❌ death_sfx NO está asignado")
+	
+	print("💀 Emitiendo señal dead")
+	emit_signal("dead")
+	
+	print("🚫 Deshabilitando física")
 	set_physics_process(false)
 	collision_layer = 0
+	collision_mask = 0
+	print("✅ _remove() completado")
 
 
 ## Wrapper sobre el llamado a animación para tener un solo punto de entrada controlable

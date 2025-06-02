@@ -334,6 +334,8 @@ script = ExtResource( 18 )
 
 [node name="JumpSfx" type="AudioStreamPlayer" parent="."]
 
+[node name="DeathSfx" type="AudioStreamPlayer" parent="."]
+
 [connection signal="healed" from="." to="StateMachine" method="notify_healed"]
 [connection signal="hit" from="." to="StateMachine" method="notify_hit"]
 [connection signal="hp_changed" from="." to="StateMachine" method="notify_hp_changed"]

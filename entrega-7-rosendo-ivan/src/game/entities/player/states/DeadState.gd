@@ -5,6 +5,20 @@ extends AbstractState
 ## a ningun otro estado), vamos a procesar todo lo necesario
 ## en el enter
 func enter() -> void:
+	print("🔴 Entrando al estado Dead")
+	
+	# Reproducir sonido de muerte con AudioStreamPlayer temporal
+	if character.death_sfx:
+		var death_audio = AudioStreamPlayer.new()
+		character.add_child(death_audio)
+		death_audio.stream = character.death_sfx
+		death_audio.play()
+		print("🔊 Reproduciendo sonido de muerte")
+		
+		# Configurar para que se elimine automáticamente cuando termine
+		death_audio.connect("finished", death_audio, "queue_free")
+	
+	# Efectos visuales y señales
 	character.emit_signal("dead")
 	character._play_animation("die")
 
